@@ -6,3 +6,5 @@ def noman():
 
 for i in noman():
 	print(i)
+
+	
