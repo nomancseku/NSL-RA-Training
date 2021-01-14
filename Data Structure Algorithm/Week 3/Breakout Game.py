@@ -45,6 +45,13 @@ while carryOn:
         if event.type == pygame.QUIT: # If user clicked close
               carryOn = False # Flag that we are done so we exit this loop
 
+    #Moving the paddle when the use uses the arrow keys 
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT]:
+        paddle.moveLeft(5)
+    if keys[pygame.K_RIGHT]:
+        paddle.moveRight(5)    
+ 
     # --- Game logic should go here
     all_sprites_list.update()
 
