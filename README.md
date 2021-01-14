@@ -5,4 +5,4 @@ All homeworks in this repository.
 
 ## Data structure and Algorithm
 
-## Deep learning essentials
+## Deep learning guide
