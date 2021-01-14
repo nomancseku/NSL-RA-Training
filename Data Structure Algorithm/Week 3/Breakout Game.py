@@ -72,7 +72,12 @@ while carryOn:
     if ball.rect.y<40:
         ball.velocity[1] = -ball.velocity[1]
 
-
+    #Detect collisions between the ball and the paddles
+    if pygame.sprite.collide_mask(ball, paddle):
+      ball.rect.x -= ball.velocity[0]
+      ball.rect.y -= ball.velocity[1]
+      ball.bounce()
+ 
     # --- Drawing code should go here
     # First, clear the screen to dark blue.
     screen.fill(DARKBLUE)
