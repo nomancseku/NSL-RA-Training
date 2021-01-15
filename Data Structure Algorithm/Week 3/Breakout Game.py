@@ -1,13 +1,13 @@
-#Import the pygame library and initialise the game engine
+#Importing the pygame library and initialise the game engine
 import pygame
-#Let's import the Paddle Class
+#Let's import the Paddle,ball and brick Class
 from paddle import Paddle
 from ball import Ball
 from brick import Brick
 
 pygame.init()
 
-# Define some colors
+# Defining some colors
 WHITE = (255,255,255)
 DARKBLUE = (36,90,190)
 LIGHTBLUE = (0,176,240)
@@ -18,7 +18,7 @@ YELLOW = (255,255,0)
 score = 0
 lives = 3
 
-# Open a new window
+# Openning a new window
 size = (800, 600)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Breakout Game")
@@ -26,12 +26,12 @@ pygame.display.set_caption("Breakout Game")
 #This will be a list that will contain all the sprites we intend to use in our game.
 all_sprites_list = pygame.sprite.Group()
 
-#Create the Paddle
+#Creating the paddle object/sprite
 paddle = Paddle(LIGHTBLUE, 100, 10)
 paddle.rect.x = 350
 paddle.rect.y = 560
 
-#Create the ball sprite
+#Creating the ball object/sprite
 ball = Ball(WHITE,10,10)
 ball.rect.x = 345
 ball.rect.y = 195
@@ -56,11 +56,11 @@ for i in range(7):
     all_sprites_list.add(brick)
     all_bricks.add(brick)
 
-# Add the paddle to the list of sprites
+# Add the paddle and ball to the list of sprites
 all_sprites_list.add(paddle)
 all_sprites_list.add(ball)
 
-# The loop will carry on until the user exit the game (e.g. clicks the close button).
+# The loop will carry on until the user exit the game (in this case, e.g. clicks the close button).
 carryOn = True
 
 # The clock will be used to control how fast the screen updates
@@ -73,7 +73,7 @@ while carryOn:
         if event.type == pygame.QUIT: # If user clicked close
               carryOn = False # Flag that we are done so we exit this loop
 
-    #Moving the paddle when the use uses the arrow keys 
+    #Moving the paddle when the user uses the arrow keys 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
         paddle.moveLeft(5)
@@ -83,7 +83,7 @@ while carryOn:
     # --- Game logic should go here
     all_sprites_list.update()
 
-    #Check if the ball is bouncing against any of the 4 walls:
+    #Checking if the ball is bouncing against any of the 4 walls:
     if ball.rect.x>=790:
         ball.velocity[0] = -ball.velocity[0]
     if ball.rect.x<=0:
@@ -92,40 +92,40 @@ while carryOn:
         ball.velocity[1] = -ball.velocity[1]
         lives -= 1
         if lives == 0:
-            #Display Game Over Message for 3 seconds
+            #Displaying Game Over Message for 3 seconds
             font = pygame.font.Font(None, 74)
             text = font.render("GAME OVER", 1, WHITE)
             screen.blit(text, (250,300))
             pygame.display.flip()
             pygame.time.wait(3000)
  
-            #Stop the Game
+            #Stopping the Game
             carryOn=False
 
     if ball.rect.y<40:
         ball.velocity[1] = -ball.velocity[1]
 
-    #Detect collisions between the ball and the paddles
+    #Detect collisions between the ball and the paddle
     if pygame.sprite.collide_mask(ball, paddle):
       ball.rect.x -= ball.velocity[0]
       ball.rect.y -= ball.velocity[1]
       ball.bounce()
 
-    #Check if there is a brick and ball collision
+    #Checking if there is a brick and ball collision
     brick_collision_list = pygame.sprite.spritecollide(ball,all_bricks,False)
     for brick in brick_collision_list:
       ball.bounce()
       score += 1
       brick.kill()
       if len(all_bricks)==0:
-           #Display Level Complete Message for 3 seconds
+           #Displaying Level Complete Message for 3 seconds
             font = pygame.font.Font(None, 74)
             text = font.render("LEVEL COMPLETE", 1, WHITE)
             screen.blit(text, (200,300))
             pygame.display.flip()
             pygame.time.wait(3000)
  
-            #Stop the Game
+            #Stopping the Game
             carryOn=False
 
     # --- Drawing code should go here
@@ -140,7 +140,7 @@ while carryOn:
     text = font.render("Lives: " + str(lives), 1, WHITE)
     screen.blit(text, (650,10))
 
-    #Now let's draw all the sprites in one go. (For now we only have 2 sprites!)
+    #Now let's draw all the sprites in one go.
     all_sprites_list.draw(screen)
 
     # --- Go ahead and update the screen with what we've drawn.
