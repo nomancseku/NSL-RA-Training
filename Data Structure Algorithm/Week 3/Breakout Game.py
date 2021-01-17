@@ -82,6 +82,7 @@ while carryOn:
     if keys[pygame.K_RIGHT]:
         paddle.moveRight(10)    
  
+ 
     # --- Game logic should go here
     all_sprites_list.update()
 
