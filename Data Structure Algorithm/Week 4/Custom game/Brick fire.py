@@ -23,7 +23,7 @@ lives = 3
 # Openning a new window
 size = (800, 600)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption("Breakout Game")
+pygame.display.set_caption("Brick Fire")
 
 #This will be a list that will contain all the sprites we intend to use in our game.
 all_sprites_list = pygame.sprite.Group()
