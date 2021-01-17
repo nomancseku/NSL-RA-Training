@@ -1,11 +1,13 @@
 #Importing the pygame library and initialise the game engine
-import pygame
+import pygame # this is a module, thats why we are using import keyword
 #Let's import the Paddle,ball and brick Class
 from paddle import Paddle
 from ball import Ball
 from brick import Brick
 
+# Initialise all imported pygame modules.
 pygame.init()
+
 
 # Defining some colors
 WHITE = (255,255,255)
