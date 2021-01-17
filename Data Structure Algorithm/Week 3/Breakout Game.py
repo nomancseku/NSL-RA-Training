@@ -78,9 +78,9 @@ while carryOn:
     #Moving the paddle when the user uses the arrow keys 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
-        paddle.moveLeft(5)
+        paddle.moveLeft(10)
     if keys[pygame.K_RIGHT]:
-        paddle.moveRight(5)    
+        paddle.moveRight(10)    
  
     # --- Game logic should go here
     all_sprites_list.update()
