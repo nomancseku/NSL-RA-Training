@@ -11,6 +11,8 @@ All homeworks in this repository.
   7. Packaging
   8. Object Oriented Python
   9. Regular Expression
+  10. Functional Programming
+  11. Problem Solving on Hacker Rank (in week 3 and 4)
 ## Data structure and Algorithm
 
 ## Deep learning guide
