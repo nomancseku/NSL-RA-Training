@@ -8,7 +8,6 @@ from brick import Brick
 # Initialise all imported pygame modules.
 pygame.init()
 
-
 # Defining some colors
 WHITE = (255,255,255)
 DARKBLUE = (36,90,190)
